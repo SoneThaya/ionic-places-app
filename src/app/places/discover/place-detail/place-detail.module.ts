@@ -8,12 +8,13 @@ import { IonicModule } from '@ionic/angular';
 import { PlaceDetailPageRoutingModule } from './place-detail-routing.module';
 
 import { PlaceDetailPage } from './place-detail.page';
+import { CreateBookingComponent } from '../../../bookings/create-booking/create-booking.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PlaceDetailPage
-  }
+    component: PlaceDetailPage,
+  },
 ];
 
 @NgModule({
@@ -21,8 +22,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlaceDetailPageRoutingModule
+    PlaceDetailPageRoutingModule,
   ],
-  declarations: [PlaceDetailPage]
+  declarations: [PlaceDetailPage, CreateBookingComponent],
+  // entryComponents doesn't seem to be needed in newer Ionic versions
+  //entryComponents: [CreateBookingComponent],
 })
 export class PlaceDetailPageModule {}

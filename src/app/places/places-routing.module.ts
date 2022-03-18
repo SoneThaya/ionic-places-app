@@ -19,7 +19,7 @@ const routes: Routes = [
               ),
           },
           {
-            path: ':placeid',
+            path: ':placeId',
             loadChildren: () =>
               import('./discover/place-detail/place-detail.module').then(
                 (m) => m.PlaceDetailPageModule
@@ -37,16 +37,25 @@ const routes: Routes = [
           },
           {
             path: 'new',
-            loadChildren: () => import('./offers/new-offer/new-offer.module').then(m => m.NewOfferPageModule)
+            loadChildren: () =>
+              import('./offers/new-offer/new-offer.module').then(
+                (m) => m.NewOfferPageModule
+              ),
           },
           {
             path: 'edit/:placeId',
-            loadChildren: () => import('./offers/edit-offer/edit-offer.module').then(m => m.EditOfferPageModule)
+            loadChildren: () =>
+              import('./offers/edit-offer/edit-offer.module').then(
+                (m) => m.EditOfferPageModule
+              ),
           },
           {
             path: ':placeId',
-            loadChildren: () => import('./offers/offer-bookings/offer-bookings.module').then(m => m.OfferBookingsPageModule)
-          }
+            loadChildren: () =>
+              import('./offers/offer-bookings/offer-bookings.module').then(
+                (m) => m.OfferBookingsPageModule
+              ),
+          },
         ],
       },
       {
