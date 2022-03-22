@@ -26,3 +26,6 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 // add global styles here
+.ion-invalid.ion-touched ion-label {
+  color: var(--ion-color-danger);
+}
