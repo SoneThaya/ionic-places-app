@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { DiscoverPageRoutingModule } from './discover-routing.module';
 
 import { DiscoverPage } from './discover.page';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    DiscoverPageRoutingModule
+    DiscoverPageRoutingModule,
+    ScrollingModule
   ],
   declarations: [DiscoverPage]
 })
