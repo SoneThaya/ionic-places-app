@@ -37,7 +37,7 @@ export class PlacesService {
       99.99,
       new Date('2022-01-01'),
       new Date('2022-12-31'),
-      'xyz'
+      'abc'
     ),
   ]);
 
