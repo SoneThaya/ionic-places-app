@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { take, map, tap, delay, switchMap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
+import { PlaceLocation } from './location.model';
 import { Place } from './place.model';
 
 interface PlaceData {
@@ -13,6 +14,7 @@ interface PlaceData {
   price: number;
   title: string;
   userId: string;
+  location: PlaceLocation;
 }
 
 // [
@@ -79,7 +81,8 @@ export class PlacesService {
                   resData[key].price,
                   new Date(resData[key].availableFrom),
                   new Date(resData[key].availableTo),
-                  resData[key].userId
+                  resData[key].userId,
+                  resData[key].location
                 )
               );
             }
@@ -108,7 +111,8 @@ export class PlacesService {
             placeData.price,
             new Date(placeData.availableFrom),
             new Date(placeData.availableTo),
-            placeData.userId
+            placeData.userId,
+            placeData.location
           );
         })
       );
@@ -119,7 +123,8 @@ export class PlacesService {
     description: string,
     price: number,
     dateFrom: Date,
-    dateTo: Date
+    dateTo: Date,
+    location: PlaceLocation
   ) {
     let generatedId: string;
     const newPlace = new Place(
@@ -130,7 +135,8 @@ export class PlacesService {
       price,
       dateFrom,
       dateTo,
-      this.authService.userId
+      this.authService.userId,
+      location
     );
     return this.http
       .post<{ name: string }>(
@@ -181,7 +187,8 @@ export class PlacesService {
           oldPlace.price,
           oldPlace.availableFrom,
           oldPlace.availableTo,
-          oldPlace.userId
+          oldPlace.userId,
+          oldPlace.location
         );
         return this.http.put(
           `https://ionic-angular-places-fd786-default-rtdb.firebaseio.com/offered-places/${placeId}.json`,
