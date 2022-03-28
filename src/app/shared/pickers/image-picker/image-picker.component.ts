@@ -5,6 +5,7 @@ import {
   EventEmitter,
   ViewChild,
   ElementRef,
+  Input,
 } from '@angular/core';
 //import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 import {
@@ -23,8 +24,9 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./image-picker.component.scss'],
 })
 export class ImagePickerComponent implements OnInit {
-  @ViewChild('filePicker') filePicker: ElementRef<HTMLInputElement>;
+  @ViewChild('filePicker') filePickerRef: ElementRef<HTMLInputElement>;
   @Output() imagePick = new EventEmitter<string | File>();
+  @Input() showPreview = false;
   selectedImage: string;
   usePicker = false;
 
@@ -46,7 +48,7 @@ export class ImagePickerComponent implements OnInit {
 
   async onPickImage() {
     if (this.usePicker) {
-      this.filePicker.nativeElement.click();
+      this.filePickerRef.nativeElement.click();
     }
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.DataUrl,
