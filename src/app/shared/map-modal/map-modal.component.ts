@@ -91,7 +91,6 @@ export class MapModalComponent implements OnInit, AfterViewInit, OnDestroy {
       return Promise.resolve(googleModule.maps);
     }
 
-    // AIzaSyBHHrGkHiHD3IEdjA9uXxzrCFh9l2I2XTg
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src =

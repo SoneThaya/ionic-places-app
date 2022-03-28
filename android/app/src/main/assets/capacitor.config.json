@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "places-app",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

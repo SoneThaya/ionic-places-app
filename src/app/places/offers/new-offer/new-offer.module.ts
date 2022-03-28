@@ -8,6 +8,8 @@ import { NewOfferPageRoutingModule } from './new-offer-routing.module';
 
 import { NewOfferPage } from './new-offer.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 @NgModule({
   imports: [
@@ -18,5 +20,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule,
   ],
   declarations: [NewOfferPage],
+  providers: [Geolocation, Camera],
 })
 export class NewOfferPageModule {}
