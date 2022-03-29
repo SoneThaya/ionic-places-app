@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { switchMap } from 'rxjs/operators';
 import { PlaceLocation } from '../../location.model';
 import { PlacesService } from '../../places.service';
 
@@ -99,6 +100,8 @@ export class NewOfferPage implements OnInit {
       })
       .then((loadingEl) => {
         loadingEl.present();
+        // upload image to firebase, NOT SETUP
+        //this.placesService.uploadImage(this.form.get('image').value).pipe(switchMap)
         this.placesService
           .addPlace(
             this.form.value.title,
